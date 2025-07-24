@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# FontAwesome (optional)
+**/font-awesome*/less/
+**/font-awesome*/scss/
