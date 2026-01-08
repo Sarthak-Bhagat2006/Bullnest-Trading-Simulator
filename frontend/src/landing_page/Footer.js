@@ -43,7 +43,7 @@ function Footer() {
                             "MTF",
                             "Referral program"
                         ].map((item, index) => (
-                            <a key={index} className="text-muted d-block mt-2 text-decoration-none" href="#">{item}</a>
+                            <a key={index} className="text-muted d-block mt-2 text-decoration-none" href="/go">{item}</a>
                         ))}
                     </div>
 
