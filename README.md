@@ -17,21 +17,21 @@ The project is currently under development and not yet ready for production. Whi
 
 ## ✨ Features
 
-- 💹 **Virtual Portfolio Management** – Buy, sell, and track stocks in a simulated environment.  
-- 📈 **Real-Time Stock Data** – Integrated with **Finnhub API** to fetch live stock prices.  
-- 📊 **Interactive Charts** – Visualize stock trends and market analytics using **Chart.js**.  
-- 🔐 **Secure Backend** – JWT authentication for safe user sessions.  
-- ⚡ **Real-Time Updates** – Portfolio and market data update dynamically after a fixed time.
+-  **Virtual Portfolio Management** – Buy, sell, and track stocks in a simulated environment.  
+-  **Real-Time Stock Data** – Integrated with **Finnhub API** to fetch live stock prices.  
+-  **Interactive Charts** – Visualize stock trends and market analytics using **Chart.js**.  
+-  **Secure Backend** – JWT authentication for safe user sessions.  
+-  **Real-Time Updates** – Portfolio and market data update dynamically after a fixed time.
 
 ---
 
 ## 🚀 Future Enhancements
 
-- 💹 Advanced trading metrics and analytics dashboards.  
-- 🔔 Price alerts and notifications for portfolio changes.  
-- 🌐 User authentication for personalised virtual portfolios.  
-- 📈 Historical stock data tracking for backtesting strategies.  
-- 🏢 Admin panel for managing stock lists and API configurations.
+-  Advanced trading metrics and analytics dashboards.  
+-  Price alerts and notifications for portfolio changes.  
+-  User authentication for personalised virtual portfolios.  
+-  Historical stock data tracking for backtesting strategies.  
+-  Admin panel for managing stock lists and API configurations.
 
 ---
 
