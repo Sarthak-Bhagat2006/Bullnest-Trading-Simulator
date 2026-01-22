@@ -22,6 +22,7 @@ It provides a realistic trading experience **without any financial risk**.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c9e81ac5-c66c-4f99-8c00-f19c14e6c0fa" width="80%" />
 </p>
+
 ## 🚧 Project Status
 
 🟡 **In Progress**  
