@@ -24,7 +24,7 @@ const Holdings = () => {
   };
 
   const totalInvestment = holdings.reduce((sum, stock) => {
-    return sum + stock.avgPrice * stock.qty;
+    return sum + stock.avgPrice;
   }, 0)
 
   const currentValue = holdings.reduce(
@@ -43,8 +43,8 @@ const Holdings = () => {
     datasets: [
       {
         label: 'Stock price',
-        data: holdings.map((stock) => stock.avgPrice),
-        backgroundColor: 'rrgba(30, 30, 60, 0.8)',
+        data: holdings.map((stock) => stock.currentPrice * stock.qty),
+        backgroundColor: 'rgba(30, 30, 60, 0.8)',
       },
     ]
   }
@@ -92,7 +92,7 @@ const Holdings = () => {
               const avg = Number(stock.avgPrice) || 0;
               const price = Number(stock.currentPrice) || 0;
               const currValue = price * qty;
-              const investment = avg * qty;
+              const investment = avg;
               const profitLoss = currValue - investment;
 
               const profitClass = profitLoss >= 0 ? "profit" : "loss";
