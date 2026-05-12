@@ -6,6 +6,7 @@ import { fetchStockQuote, searchStock } from "../services/finnhub.js"
 import US_STOCKS from "../constants/indianStocks";
 import Skeleton from '@mui/material/Skeleton';
 
+import { chunkArray } from "../services/chunkArray.js"
 import { DoughnutChart } from "./DoughnutChart.js";
 const WatchList = () => {
 
@@ -16,26 +17,35 @@ const WatchList = () => {
     const fetchAllPrices = async () => {
       const results = [];
 
-      for (const symbol of US_STOCKS) {
-        try {
-          const data = await fetchStockQuote(symbol);
-          results.push({
-            name: symbol,
-            price: data.c,
-            percent: `${data.dp.toFixed(2)}%`,
-            isDown: data.d < 0
-          });
-          await new Promise(res => setTimeout(res, 500));
-        } catch (err) {
-          console.error(`Error fetching ${symbol}:`, err);
-        }
+      const stockChunks = chunkArray(US_STOCKS, 5);
+
+      for (const chunk of stockChunks) {
+
+        const promises = chunk.map(async (symbol) => {
+
+          try {
+            const data = await fetchStockQuote(symbol);
+            return {
+              name: symbol,
+              price: data.c,
+              percent: `${data.dp.toFixed(2)}%`,
+              isDown: data.d < 0,
+            };
+          } catch (err) {
+            console.error(`Error fetching ${symbol}`, err);
+            return null;
+          }
+        });
+        const chunkResults = await Promise.all(promises);
+        results.push(...chunkResults.filter(Boolean));
+        await new Promise((res) => setTimeout(res, 1000));
       }
       setLiveWatchlist(results);
       setIsWatchlist(true);
     }
     fetchAllPrices();
 
-    const interval = setInterval(fetchAllPrices, 40000); // Poll every 15s
+    const interval = setInterval(fetchAllPrices, 120000); // Poll every 2 min
     return () => clearInterval(interval);
   }, [])
 
